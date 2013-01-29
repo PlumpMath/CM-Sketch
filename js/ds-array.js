@@ -88,15 +88,25 @@
 
         // create an array with specified rows & columns
         // TODO: make initializing the array chainable
+        // TODO: allow parameters to specify rows & columns and extend thos to otpions
         $.fn.initArray = function( ) {
             
             dsArray = new Array(opts.rows);
 
-            var index;
+            // the current row of the ds array
+            var row;
+            // the current column of the ds array
+            var col;
 
-            for(index=0; index < dsArray.length; index++) {
-                dsArray[index] = new Array(opts.cols);
-            }    
+            // instantiate the datastream array
+            for(row=0; row < dsArray.length; row++) {
+                dsArray[row] = new Array(opts.cols);
+
+                // insert a random number from 0 < maxVal in each array cell
+                for(col=0; col < dsArray[row].length; col++ ) {
+                    dsArray[row][col] = Math.floor(Math.random() * opts.maxVal);
+                }
+            }
         }
 
         // initialize the array
@@ -118,7 +128,11 @@
         }
         // get the max value allowed in each array cell
         $.fn.getMaxVal = function() {
-            return opts.maxVal;    
+            return opts.maxVal;
+        }
+        // get the value at the specified cell
+        $.fn.getCell = function( row, col ) {
+            return dsArray[row][col];
         }
 
         /*
