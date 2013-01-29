@@ -1,9 +1,31 @@
 
 /*!
- * jQuery lightweight plugin boilerplate
- * Original author: @ajpiano
- * Further changes, comments: @addyosmani
- * Licensed under the MIT license
+ * jQ Plugin Name : Count-Min Sketch: Datastream Array Plugin
+ * Author         : Kurt Mueller
+ * 
+ * Description:
+ * This is a jQuery plugin written to model a simple DataStream array.
+ * This plugin initialize an array of specified rows & columns and then
+ * randomy adds integers into each cell (with the maximum value specified
+ * by the user).
+ *
+ *
+ * Notes:
+ * As I write and update this plugin, I am striving to utilize common jS & jQ
+ * best practices, including:
+ * 1) avoiding namespace collisions
+ * 2) avoiding polluting the jQ object with functions
+ * 2) chainable functions
+ * 3) Unit testing with QUnit.
+ *
+ * If you happen to spot something that I'm doing wrong or that I could do a
+ * better way, I'd really appreciate it if you could drop me a line. Thank you!
+ * 
+ *
+ * Special Thanks: 
+ * This plugin's pattern was based off of the 'jQuery' lightweight
+ * plugin boilerplate, written by @ajpiano and modified by @addyosmani. 
+ * Thank you to both of these guys for putting this out there.
  */
 
 
