@@ -59,15 +59,22 @@
         // the options via the instance, e.g. this.element 
         // and this.options
         var opts = this.options;
+        var $this = this;
 
         /*
-         * Acessor Methods
+         * Accessor Methods
+         *
+         */
+
+        /*
+         * TODO: I would like accessor methods to be chainable, if that's possible.
          */
 
         // get the # of rows in the datastream array
         $.fn.getRows = function() {
             return opts.rows;    
         }
+        
         // get the # of columns in the datastream array
         $.fn.getCols = function() {
             return opts.cols;    
@@ -76,8 +83,6 @@
         $.fn.getMaxVal = function() {
             return opts.maxVal;    
         }
-
-
     };
 
     // A really lightweight plugin wrapper around the constructor, 
