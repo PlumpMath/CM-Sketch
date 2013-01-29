@@ -33,7 +33,7 @@
             // # of columns in the datastream array
             cols: 10,
             // the maximum value the each array cell can have
-            maxVal: 10
+            maxVal: 10,
         };
 
     // The actual plugin constructor
@@ -58,11 +58,27 @@
         // We already have access to the DOM element and
         // the options via the instance, e.g. this.element 
         // and this.options
-    };
+        var opts = this.options;
 
-    DataStream_Array.prototype.getRows = function ()  {
-    	return this.options.rows;
-    }
+        /*
+         * Acessor Methods
+         */
+
+        // get the # of rows in the datastream array
+        $.fn.getRows = function() {
+            return opts.rows;    
+        }
+        // get the # of columns in the datastream array
+        $.fn.getCols = function() {
+            return opts.cols;    
+        }
+        // get the max value allowed in each array cell
+        $.fn.getMaxVal = function() {
+            return opts.maxVal;    
+        }
+
+
+    };
 
     // A really lightweight plugin wrapper around the constructor, 
     // preventing against multiple instantiations
