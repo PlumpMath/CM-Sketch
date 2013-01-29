@@ -4,14 +4,23 @@
 		%title Count-Min Sketch
 		%meta{:charset => "utf-8"}
 
-		%link{ :rel => "stylesheet", :href => "style.css" }
+		-# CSS files
+		%link{ :rel => "stylesheet", :href => "css/jquery-ui.css" }
+		%link{ :rel => "stylesheet", :href => "css/qunit.css" }
+		%link{ :rel => "stylesheet", :href => "css/style.css" }
+
+
 	%body
-		%p Hello world
+		#ds-array
+		#qunit
+		#qunit-fixture
 		%footer
 			-# jQuery files
 			%script{ :src => "js/jquery.js" }
 			%script{ :src => "js/jquery-ui.js" }
 
 			-# CM-Sketch jQ files
+			%script{ :src => "js/ds-array.js" }
 			%script{ :src => "js/script.js" }
-			%script{ :src => "js/cm-sketch.js" }
+			%script{ :src => "js/qunit.js" }
+			%script{ :src => "js/tests.js" }
