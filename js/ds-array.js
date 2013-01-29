@@ -61,27 +61,72 @@
         var opts = this.options;
         var $this = this;
 
+        // the datastream array
+        var dsArray;
+
+        // create an array with specified rows & columns
+        // TODO: make initializing the array chainable
+        $.fn.initArray = function( ) {
+            
+            dsArray = new Array(opts.rows);
+
+            var index;
+
+            for(index=0; index < dsArray.length; index++) {
+                dsArray[index] = new Array(opts.cols);
+            }    
+        }
+
+        // initialize the array
+        $.fn.initArray();
+        
         /*
          * Accessor Methods
-         *
          */
 
-        /*
-         * TODO: I would like accessor methods to be chainable, if that's possible.
-         */
-
+        /* TODO: I would like accessor methods to be chainable, if that's possible. */
+         
         // get the # of rows in the datastream array
         $.fn.getRows = function() {
-            return opts.rows;    
+            return dsArray.length; 
         }
-        
         // get the # of columns in the datastream array
         $.fn.getCols = function() {
-            return opts.cols;    
+            return dsArray[0].length;    
         }
         // get the max value allowed in each array cell
         $.fn.getMaxVal = function() {
             return opts.maxVal;    
+        }
+
+        /*
+         * Mutator Methods
+         * postconditions: initArray must be called in for for this change to take effect.
+         */
+
+         // set the # of rows in the datastream array
+        $.fn.setRows = function( rows ) {
+            return this.each(function () {
+                if( rows && typeof rows === 'number' ) {
+                    opts.rows = Math.floor(rows);
+                }
+            });
+        }
+        // set the # of cols in the datastream array
+        $.fn.setCols = function( cols ) {
+            return this.each(function () {
+                if( cols && typeof cols === 'number' ) {
+                    opts.cols = Math.floor(cols);
+                }
+            });
+        }
+        // set the maximum value possible in each array cell
+        $.fn.setMaxVal = function( maxVal ) {
+            return this.each(function () {
+                if( maxVal && typeof maxVal === 'number' ) {
+                    opts.maxVal = Math.floor(maxVal);
+                }
+            });
         }
     };
 
